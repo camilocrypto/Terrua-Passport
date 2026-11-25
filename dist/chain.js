@@ -57,9 +57,11 @@
         ...options,
       });
     } catch {
-      throw new Error(
+      const error = new Error(
         'No se pudo contactar Stellar Testnet. Comprueba tu conexión y vuelve a intentar.',
       );
+      error.code = 'network';
+      throw error;
     }
     const body = await response.json().catch(() => ({}));
     if (!response.ok) {

@@ -14,7 +14,15 @@
   function valid(r) {
     return (
       r &&
-      r.schema === 'terrua.review.v1' &&
+      (r.schema === 'terrua.review.v1' ||
+        (r.schema === 'terrua.correction.v1' &&
+          Number.isSafeInteger(r.number) &&
+          r.number > 0 &&
+          r.number <= 99999999 &&
+          r.status === 'retirada' &&
+          typeof r.reason === 'string' &&
+          r.reason.trim() &&
+          r.reason.length <= 100)) &&
       typeof r.org === 'string' &&
       r.org.trim() &&
       r.org.length <= 100 &&
@@ -45,7 +53,7 @@
       );
     return tx.addMemo(S.Memo.hash(review.batch)).setTimeout(300).build();
   }
-  async function verify(hash, receipt) {
+  async function verify(hash, receipt, schema = 'terrua.review.v1') {
     if (!/^[a-f0-9]{64}$/.test(hash))
       throw Error('El hash de la revisión no es válido.');
     const record = await chain.request(chain.HORIZON + '/transactions/' + hash);
@@ -83,7 +91,7 @@
         Uint8Array.from(atob(data), (c) => c.charCodeAt(0)),
       ),
     );
-    if (!valid(r) || r.batch !== receipt.hash) fail();
+    if (!valid(r) || r.schema !== schema || r.batch !== receipt.hash) fail();
     return { data: r, signer: tx.source, hash, at: record.created_at };
   }
   async function sign(review, receipt) {

@@ -537,7 +537,7 @@
     return (
       location.origin +
       location.pathname +
-      '#botella/' +
+      (r.pilot ? '#piloto/' : '#botella/') +
       r.receipt.hash +
       '/' +
       n +
@@ -1005,6 +1005,18 @@
       '<details class="subgroup dossier" ' + (number == null ? 'open' : '') +
         '><summary>Origen y expediente del vino</summary>' + sections(d, true) + '</details>' +
       bottlePanel(r, token) +
+      (r.pilot
+        ? '<section class="subgroup"><h3>Registro autorizado de la demo</h3>' +
+          '<p>La cuenta emisora coincide con el registro publicado. Los datos del vino son ficticios.</p>' +
+          (r.correction && (number == null || number === r.correction.data.number)
+            ? '<h4>Historial de la botella ' + esc(TerruaSerial.label(r.correction.data.number)) +
+              '</h4><ol><li><a href="' + TerruaPilot.transactionUrl(p.hash) +
+              '">Emisión original</a></li><li><a href="' +
+              TerruaPilot.transactionUrl(r.correction.hash) +
+              '">Retirada declarada</a> · ' + esc(r.correction.data.reason) +
+              '</li></ol>' + proofLine('Cuenta revisora', r.correction.signer)
+            : '') + '</section>'
+        : '') +
       reviewPanel(r) +
       '<p class="helptext">El origen, el contenido y los respaldos corresponden a la declaración del productor. La verificación de Stellar comprueba la integridad de la ficha y su emisión.</p>' +
       (d.evidence
@@ -1065,6 +1077,7 @@
     reviewHash = '',
     imported = null,
     number = null,
+    pilot = false,
   ) {
     const id = ++nonce;
     if (number === null) {
@@ -1082,6 +1095,13 @@
     );
     try {
       const result = await chain.verify(hash);
+      if (id !== nonce) return;
+      let correction = null;
+      if (pilot) {
+        const roster = await TerruaPilot.roster();
+        const lot = roster.lots.find((entry) => entry.seal === hash);
+        correction = await TerruaPilot.verify(roster, lot, result, number);
+      }
       if (id !== nonce) return;
       const error = validate(result.metadata);
       if (error) throw Error('La ficha registrada contiene campos no válidos.');
@@ -1103,10 +1123,12 @@
         data: result.metadata,
         receipt: result.receipt,
         example: result.metadata.example === true,
+        pilot,
+        correction,
       };
-      const reviewToCheck =
+      const reviewToCheck = !pilot && (
         reviewHash ||
-        (!imported && (storedReview(hash)?.hash || known?.review?.hash));
+        (!imported && (storedReview(hash)?.hash || known?.review?.hash)));
       r.review = reviewToCheck
         ? await TerruaReview.verify(reviewToCheck, result.receipt)
         : null;
@@ -1133,13 +1155,14 @@
       window.scrollTo(0, 0);
     } catch (e) {
       if (id === nonce) {
-        alertAt(e.message);
+        const unavailable = e.code === 'network' || e.status === 429 || e.status >= 500;
+        alertAt(pilot ? (unavailable ? 'Consulta sin confirmar: ' : 'Registro sin verificar: ') + e.message : e.message);
         const actions = document.querySelector('#scan-actions');
         if (actions) {
           const retry = document.createElement('button');
           retry.className = 'btn primary';
           retry.textContent = 'Volver a intentar';
-          retry.addEventListener('click', () => verifyHash(hash, reviewHash, imported, number), { once: true });
+          retry.addEventListener('click', () => verifyHash(hash, reviewHash, imported, number, pilot), { once: true });
           actions.append(retry);
         }
       }
@@ -1318,6 +1341,37 @@
       busy = false;
     }
   }
+  async function pilotIndex() {
+    const id = nonce;
+    app.innerHTML = '<h1>Demo Testnet</h1><p>Pasaportes numerados con datos ficticios. Selecciona una botella para verificar su emisión.</p>' + feedback;
+    try {
+      const { lots } = await TerruaPilot.roster();
+      if (id !== nonce) return;
+      const labels = [];
+      for (const lot of lots) {
+        app.insertAdjacentHTML('beforeend', '<section class="panel no-print"><h2>' +
+          esc(lot.label) + '</h2><div class="actions">' +
+          Array.from({ length: lot.count }, (_, i) => {
+            const n = lot.first + i;
+            if (i < 2) {
+              const url = bottleUrl({ pilot: true, receipt: { hash: lot.seal } }, n);
+              labels.push('<div class="qr-box"><strong>' + esc(lot.label) +
+                ' · ' + TerruaSerial.label(n) + '</strong>' + qr(url) + '</div>');
+            }
+            return link('Botella ' + TerruaSerial.label(n),
+              '#piloto/' + lot.seal + '/' + n, 'btn outline');
+          }).join('') + '</div>' +
+          (lot.claim ? '<p><a href="' + TerruaPilot.transactionUrl(lot.claim) +
+            '">Consultar el reclamo de prueba en Horizon</a></p>' : '') + '</section>');
+      }
+      app.insertAdjacentHTML('beforeend',
+        '<section class="panel"><h2>Etiquetas de prueba</h2><p>Imprime estas seis etiquetas desde la URL HTTPS de la demo para poder escanearlas desde otro dispositivo.</p>' +
+        '<div class="actions">' + labels.join('') + '</div>' +
+        action('Imprimir etiquetas', 'print', 'btn outline no-print', 'print') + '</section>');
+    } catch (error) {
+      if (id === nonce) alertAt(error.message);
+    }
+  }
   function route() {
     nonce++;
     refresh();
@@ -1356,6 +1410,14 @@
         const number = TerruaSerial.serialNumber(sample.data, reviewHash);
         passport(sample, false, null, number);
       } catch { location.hash = 'pasaporte/origen'; }
+    } else if (page === 'piloto') {
+      if (!param) pilotIndex();
+      else if (/^[a-f0-9]{64}$/.test(param) && /^\d{1,8}$/.test(reviewHash))
+        verifyHash(param, '', null, reviewHash, true);
+      else {
+        pilotIndex();
+        alertAt('El enlace de la botella no es válido.');
+      }
     } else if (page === 'botella') {
       const parts = location.hash.slice(1).split('/');
       if (
@@ -1515,7 +1577,7 @@
       );
       const dest = bottleUrl(current, n);
       if (location.href === dest)
-        verifyHash(current.receipt.hash, current.review?.hash || '', null, n);
+        verifyHash(current.receipt.hash, current.review?.hash || '', null, n, current.pilot === true);
       else location.href = dest;
       return;
     }
@@ -1622,6 +1684,7 @@
           current.review?.hash || '',
           null,
           current.token?.number ?? null,
+          current.pilot === true,
         );
       if (a === 'print') window.print();
       if (a === 'copy') {

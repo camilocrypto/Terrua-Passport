@@ -1,0 +1,47 @@
+{
+  "network": "Stellar Testnet",
+  "reviewer": "GAPFV67XQ7IXY3J6N2N4VWW434XAFBMD3SIVUZI2BRU2Y6ATBKKUM4KW",
+  "lots": [
+    {
+      "label": "Ladera de muestra · DEMO-mwwqanss-1",
+      "marker": "GBL5QLOVLTTYHXDHYVEEAWS3UBC3LGD5ZI5WYS3EH7GGHFDW3SG2ZVAV",
+      "issuer": "GAHHJGJBOKHG2HYYLOAQ2ZCXPAFDYNNGKT5KLPB4IWMR6Z6YOSU7RMEE",
+      "fingerprint": "d572d9f91621adf7ab9fd6dba29557402b9614d0348b64a2bc3f53fabc5b67e5",
+      "setup": "7562cfbfdb4407d9e79147fe7bcae8def674023d8e02cc447c1fa3c076ee8af9",
+      "blocks": [
+        "f3b70669fde61f51714e1e6856bac390af3eb1b58b2fb585513c11b1945fd8d5"
+      ],
+      "seal": "c7e77e51bf296702b1d7a8e5ae0b55cc182446e17883e29d6f5969ba6393be87",
+      "first": 1,
+      "count": 24,
+      "correction": "c3579065961a8ec28574e0561e594de04623a0ac35224320cceafd2b7c6d0bbc",
+      "claim": "18ba11d905be5ea29982e437c8c62c9c7b5cb3e035fc956ec06167d8434f11b9"
+    },
+    {
+      "label": "Valle de muestra · DEMO-mwwqanss-2",
+      "marker": "GDJTKYP7BGNCOU25JQ76MS44CPGNLGOZ5ZYMZBOUD5U6XTVO7GSWDJKC",
+      "issuer": "GCQOG7QEZ4WDPPN5COZGVR6U7BGXIPUDT56FOCSFYGPPCCAA6UUCBJB2",
+      "fingerprint": "eb3e878cf7774ee4bf560430b7c4a9ea5e8ee87ad8c544da43eaa2097e10c95a",
+      "setup": "3b23f8002d10c8de62207e6f4e22efcbcf4b6fc4abdd5e76f60b42a9818b9bea",
+      "blocks": [
+        "8173629d48de24140fa164481e0bcb75c39fe83ba41cf318824a2aad80f66c5a"
+      ],
+      "seal": "f14b289b3e5f081b341d25001e0ffa6354d198005a035ebc56783963ae2308be",
+      "first": 1,
+      "count": 24
+    },
+    {
+      "label": "Parcela de muestra · DEMO-mwwqanss-3",
+      "marker": "GBNFSAT7ILM6DPWRK3TCUCMFFNQZ526V2OZSKAPUODRECDKANDL3HYY3",
+      "issuer": "GD5XYUAQ7NARB5276AFVOLMSDJCU6FRLFNTG72LHILVLOCEB53GTU35X",
+      "fingerprint": "edfa01ada8a606d2da6741c1c52e46fff7ccc67a9d22856dcc43a2a25e167f5d",
+      "setup": "e39c7ddc117330ae11141709406e8e1dd6c2a28b4048df6295e2553d41590e8f",
+      "blocks": [
+        "efb26c3ace1ac123ebe61897e4569787b680d7dda3edca2160139aff108ba3d1"
+      ],
+      "seal": "5f94abef973ba29c6482e6f631bb6f0453c72a331cc05c6642d8bf96847e6861",
+      "first": 1,
+      "count": 24
+    }
+  ]
+}

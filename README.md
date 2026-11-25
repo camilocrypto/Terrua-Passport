@@ -6,6 +6,21 @@ Terruá Passport lets wineries tokenize each numbered bottle on Stellar Testnet 
 
 Prototipo para registrar lotes de vino, elegir entre un activo por lote y una serie de botellas con activos individuales y verificar la ficha y su revisión en Stellar Testnet. Esta copia incluye la aplicación con emisión individual numerada, el código JavaScript editable, los recursos gráficos y las dependencias de la aplicación.
 
+## Piloto para Instawards
+
+La sección **Demo Testnet** abre los pasaportes de tres lotes ficticios. Cada
+enlace verifica la emisión por número sin conectar una billetera. La aplicación
+contrasta el emisor con el registro publicado de la demo y muestra el historial
+firmado para la botella retirada. Las seis etiquetas de prueba se imprimen desde
+esa sección. Alojando `dist/` por HTTPS, sus QR sirven también desde otro equipo.
+
+Con Node.js 22, ejecuta `node pruebas/piloto-local.cjs` para las pruebas de
+autorización y correcciones, `node pruebas/serie.cjs` para las pruebas de
+emisión y recuperación, y `node pruebas/piloto.cjs` para verificar 72 botellas,
+una corrección y un reclamo directamente contra Stellar Testnet. Las referencias
+publicadas están en `dist/pilot-evidence.json`. Consulta la
+[guía de reproducción y postulación](PILOTO.md) para volver a generar el piloto.
+
 ## Abrir en Windows
 
 1. Clona este repositorio o descarga y extrae su ZIP.
