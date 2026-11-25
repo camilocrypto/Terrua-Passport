@@ -1,0 +1,47 @@
+{
+  "format": "terrua.passport.export.v1",
+  "network": "Stellar Testnet",
+  "metadata": {
+    "aging": "9 meses en roble francés",
+    "alcohol": 14.2,
+    "author": "Equipo enológico de Viña Umbral",
+    "bottled": "2025-02-14",
+    "bottles": 1200,
+    "country": "Chile",
+    "example": true,
+    "fermentation": "Acero inoxidable",
+    "harvest": "2024-04-12",
+    "lot": "COL-024",
+    "name": "Reserva Los Boldos",
+    "notes": "Ciruela negra, cacao y un final especiado.",
+    "origin": "Valle de Colchagua",
+    "parcel": "Los Boldos · Cuartel 4",
+    "schema": "terrua.passport.v1",
+    "type": "Tinto",
+    "variety": "Carménère",
+    "vintage": 2024,
+    "volume": 750,
+    "winery": "Viña Umbral"
+  },
+  "receipt": {
+    "hash": "45415c6847ebb0e8e89b487beaad7838aefbca77bbf7f59ca205a7d7ac02096e",
+    "ledger": 5857944,
+    "at": "2026-11-22T02:09:21Z",
+    "issuer": "GC42V47SLXF3YAGNJSIQNSHMQTGXTWS2WPYEPQCKS2R6WIIQHNNF3VEE",
+    "distribution": "GAAGFJU7MYMR2QRIO2HXISBX37UJ2JU5KK46VCK2ERJ3YNLC4DFQLMKX",
+    "code": "VIN81669D451",
+    "fingerprint": "81669d45184a7cf881e46f21c0c1d224a98fbf419444098e93401748d8d9369a"
+  },
+  "review": {
+    "data": {
+      "batch": "45415c6847ebb0e8e89b487beaad7838aefbca77bbf7f59ca205a7d7ac02096e",
+      "folio": "DEMO-COL-024",
+      "org": "Laboratorio de muestra Terruá",
+      "schema": "terrua.review.v1",
+      "scope": "Revisión documental"
+    },
+    "signer": "GD2SRXDMFYNKBQ6WVOU63MWK3A4IRPIUGSHPFWYCKIU5DZJPY6IDGPS4",
+    "hash": "7b8a30ccc5402e0fc220dc70e233b37682e50e4a0b6bd597f55bf43338a19ba1",
+    "at": "2026-11-22T02:17:56Z"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "metadata": {
+    "alcohol": 12.8,
+    "author": "Equipo de Viña Quebrada Clara",
+    "bottleMode": "bottles-v1",
+    "bottles": 620,
+    "country": "Chile",
+    "example": true,
+    "fermentation": "Fermentación en tinaja",
+    "firstSerial": 1,
+    "harvest": "2025-03-21",
+    "lot": "ITA-011",
+    "name": "Piedra del Sur",
+    "origin": "Valle del Itata",
+    "schema": "terrua.passport.v1",
+    "type": "Tinto",
+    "variety": "País",
+    "vintage": 2025,
+    "volume": 750,
+    "winery": "Viña Quebrada Clara"
+  },
+  "receipt": {
+    "mode": "bottles-v1",
+    "hash": "0b424160dfdcc63afdaabc1d7ac2ec5cda27ad258c999c463e10f155335e39be",
+    "ledger": 5870886,
+    "at": "2026-11-22T20:07:51Z",
+    "issuer": "GC26EKOO7NHTVPFSQPYV7UO7RM4GCWUH2LF4YBOL5QELF3UF22NXAE2V",
+    "distribution": "GDLSF76ESLWVMLWR6WYNVIM2PL2OUFFFMCQRZR2CAPBN5NWFXE43JAKC",
+    "code": "SER51A6D30F5",
+    "fingerprint": "51a6d30f50e1471056e4185a0625e1b302f6e6a4c6471035227bdf8fad2ed7a6",
+    "setup": "e83e4a16616768bcb7a92095f27a9836db0ac3557152f2c0bd325445c963de28",
+    "blocks": [
+      "885529283645cf58397ccd6edde8f0510a8ef5289e0e38a04ba2b7e715f660cf",
+      "c44cfbb47f30b2114123d58e7c8213216c0fadea6d11b5dc2f0df367965b820f",
+      "63543893547df0915b199806a1a69b762ab9ca86601fe777e951d255fb9bcc73",
+      "d6f3c107a0c63e36dfadb9744eedb664d32a3eeb9402f78403889fb9becef86a",
+      "028a4fd98fb97546194520c2b8b494e2940de1b8546ab462adbe6f589c228d6e",
+      "937254618155570c1d873dd8c2d188f7f2635183879f20bec748e7758ed45331",
+      "a7bac2ef8c656d67a756120aeb0f21170b31bb9d73d496b3ac8cc846f559422f",
+      "9d978e09869eb87a8c1fbb7a77a6fe24eafc318025027527c3cf9b61b31b5c8f",
+      "0f49fd80eb5b9a100c1579708a470d257600d2c9cfb1ec4b0ca255e831f75035",
+      "cf9318123154b0b7d0539aef0c3aaede9f84b273500341ae80abfb9a290c6e21",
+      "38080b6a1ea0f39f7122b21648109b0197e9e5f57c34bd4ff582dd5329decd74"
+    ]
+  }
+}
