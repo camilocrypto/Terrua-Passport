@@ -1,0 +1,160 @@
+{
+  "network": "Stellar Testnet",
+  "contract": "CBFRFBTXEMDH5QPPK664V3WHS47P4DG72CWXBANCP3NHQ5PHUO5YUPGS",
+  "reader": "GDZRQU4XVFQURTAZTP7DKNHLW76BLCXXBZMM6Y4425PKIXMHTZPZIAFY",
+  "wasmHash": "cde0d3ed284be0b881ce2c917810441cdb32839c0cfb0db63355d41d5f50b4ca",
+  "upload": {
+    "label": "Publicación del Wasm",
+    "hash": "e3f4eaa5eed21032ddd5d989efcce6cd250c61fc8a0958d427d3020698e0a92b",
+    "ledger": 5926306,
+    "feeStroops": "19634794"
+  },
+  "deployment": {
+    "hash": "a59dd79e20aa5ecbb650d51906e971af0f27537358150bab6e0db9b6e54ace24",
+    "ledger": 5926307,
+    "feeStroops": "30805"
+  },
+  "lots": [
+    {
+      "id": "548be39b2a43a201a96ed1db3d2425f033527c289988a6cc1898b1ffb5a27844",
+      "manifest": {
+        "schema": "terrua.soroban.v1",
+        "winery": "Bodega de demostración",
+        "code": "SOROBAN-001",
+        "origin": "Ladera de muestra",
+        "vintage": 2024,
+        "first": 1,
+        "count": 24
+      },
+      "transactions": [
+        {
+          "label": "Registro de SOROBAN-001",
+          "hash": "3fcde25751315907999bf2f962f50dd04a460924ca6fef3c6d55d50af358b7f0",
+          "ledger": 5926309,
+          "feeStroops": "40808"
+        },
+        {
+          "label": "Registro de botellas 1–8",
+          "hash": "b7b64191b35f6a34de6977e9644ab0811503512c02c87a63f47ba62c24fbae55",
+          "ledger": 5926310,
+          "feeStroops": "290902"
+        },
+        {
+          "label": "Registro de botellas 9–16",
+          "hash": "d14ea2516dc219e907cf1c3a4d15c3965d698810057c0f271712cc8f5ace7738",
+          "ledger": 5926311,
+          "feeStroops": "290902"
+        },
+        {
+          "label": "Registro de botellas 17–24",
+          "hash": "06b8cf8dbde2d97c6724f106bf5600524c05c9beb236e8cf41a24bac40a97cc1",
+          "ledger": 5926312,
+          "feeStroops": "290902"
+        },
+        {
+          "label": "Asignación a la wallet titular",
+          "hash": "b868e15bb78cc301320a3e1db964bdb9ce7f49fe6c383f40cf5bbb46428dee96",
+          "ledger": 5926313,
+          "feeStroops": "8798",
+          "number": 1
+        },
+        {
+          "label": "Consumo firmado por el titular",
+          "hash": "84f1b3b1b686364cd3f7fc8e65c1ac99cfbe321863e162844fc28d1bc3a7f99b",
+          "ledger": 5926314,
+          "feeStroops": "5837",
+          "number": 1
+        },
+        {
+          "label": "Retiro firmado por revisión",
+          "hash": "98bc900a87369b0fb1940301cd3761ab2ff01adb09838342404775b65ea78a8d",
+          "ledger": 5926315,
+          "feeStroops": "9948",
+          "number": 2
+        }
+      ]
+    },
+    {
+      "id": "ca03e3c15378df250023f3cf4f5128ee64ac6d8db8b3b935d068fd97cf19647a",
+      "manifest": {
+        "schema": "terrua.soroban.v1",
+        "winery": "Bodega de demostración",
+        "code": "SOROBAN-002",
+        "origin": "Valle de muestra",
+        "vintage": 2024,
+        "first": 1,
+        "count": 24
+      },
+      "transactions": [
+        {
+          "label": "Registro de SOROBAN-002",
+          "hash": "201350dc0ac7bb9f251d5ce390bfc927d07d9d282ed7cbed3a9676e4f6dc4f95",
+          "ledger": 5926316,
+          "feeStroops": "40808"
+        },
+        {
+          "label": "Registro de botellas 1–8",
+          "hash": "9cd6090598d84b957887f1171493ba84a484a5416a5032006d2d180b3b5cf4e3",
+          "ledger": 5926317,
+          "feeStroops": "290902"
+        },
+        {
+          "label": "Registro de botellas 9–16",
+          "hash": "21128486a4a09f2862a3b2a40531f69e8a71c203709aaa03a2e148967f357d9a",
+          "ledger": 5926318,
+          "feeStroops": "290902"
+        },
+        {
+          "label": "Registro de botellas 17–24",
+          "hash": "9378e06b0cac97ae2faba6261608c100544542f10930cbb6baf017138fd6cd79",
+          "ledger": 5926319,
+          "feeStroops": "290902"
+        }
+      ]
+    },
+    {
+      "id": "8c7459639c2aab0cad98efb096a70571939f50a99860eb03bb886da8b7d9af8f",
+      "manifest": {
+        "schema": "terrua.soroban.v1",
+        "winery": "Bodega de demostración",
+        "code": "SOROBAN-003",
+        "origin": "Parcela de muestra",
+        "vintage": 2024,
+        "first": 1,
+        "count": 24
+      },
+      "transactions": [
+        {
+          "label": "Registro de SOROBAN-003",
+          "hash": "04b8b4a4603c23fd884950887dc8e1f3a493846eaaf6998d6f2393fdded7a735",
+          "ledger": 5926320,
+          "feeStroops": "40808"
+        },
+        {
+          "label": "Registro de botellas 1–8",
+          "hash": "d9ff198103a7ade367c0fab2dfcfa15372a6137a9f80093242310a0c019f4356",
+          "ledger": 5926321,
+          "feeStroops": "290902"
+        },
+        {
+          "label": "Registro de botellas 9–16",
+          "hash": "7a9125dcf5403003993ae317b36af19b913d6ff32e43629bcff19bf3a611a821",
+          "ledger": 5926322,
+          "feeStroops": "290902"
+        },
+        {
+          "label": "Registro de botellas 17–24",
+          "hash": "209824ce53b8ba0f92ebe2eeed6c10ebb11afbaeeae572ce4b179a264a1a1e15",
+          "ledger": 5926323,
+          "feeStroops": "290902"
+        }
+      ]
+    }
+  ],
+  "authorization": {
+    "label": "Autorización de bodega",
+    "hash": "dbfecad5befbda689e802da324f3859b03c1fab4d5c39bd9f3d36e386b4cd68c",
+    "ledger": 5926308,
+    "feeStroops": "22329"
+  }
+}

@@ -8,7 +8,12 @@ Prototipo para registrar lotes de vino, elegir entre un activo por lote y una se
 
 ## Piloto para Instawards
 
-La sección **Demo Testnet** abre los pasaportes de tres lotes ficticios. Cada
+**Demo Soroban** verifica un pasaporte por botella y su estado en Testnet. Los
+QR y las etiquetas numeradas simulan el etiquetado físico. La guía de
+[Soroban](SOROBAN.md) describe el código oculto, el consumo firmado y cómo
+reproducir el despliegue.
+
+La sección **Demo Testnet** conserva el piloto Classic de tres lotes ficticios. Cada
 enlace verifica la emisión por número sin conectar una billetera. La aplicación
 contrasta el emisor con el registro publicado de la demo y muestra el historial
 firmado para la botella retirada. Las seis etiquetas de prueba se imprimen desde
