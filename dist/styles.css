@@ -1410,3 +1410,13 @@ footer > div {
 @media (prefers-reduced-motion: reduce) {
   .ensayo-stage[data-preview-open] .ensayo-capsule { animation-duration: 1ms; }
 }
+@media (max-width: 680px) {
+  #soroban-app, #soroban-app article, #passport { min-width: 0; overflow-wrap: anywhere; }
+  #passport .ensayo-preview { margin-block: 12px; }
+  .ensayo-gallery-frame #passport .ensayo-preview { margin: 0; }
+  #passport .ensayo-stage { height: clamp(260px, 78vw, 340px); }
+  #passport .ensayo-views { padding: 8px; gap: 5px; justify-content: center; }
+  #passport .ensayo-views .btn { min-height: 44px; padding-inline: 8px; white-space: normal; }
+  #soroban-app .ensayo-catalogue { grid-template-columns: repeat(auto-fill, minmax(82px, 1fr)); }
+  #soroban-app .ensayo-catalogue a { min-height: 44px; white-space: normal; text-align: center; }
+}

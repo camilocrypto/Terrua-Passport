@@ -6,15 +6,19 @@
   <title>Galería de botellas · Terruá Passport</title>
   <link rel="icon" href="assets/mark.svg" />
   <link rel="stylesheet" href="galeria.css" />
+  <link rel="stylesheet" href="public-nav.css" />
   <script defer src="galeria.js"></script>
 </head>
 <body>
-  <header class="gallery-header">
-    <a class="gallery-brand" href="/"><img src="assets/mark.svg" alt="" width="36" height="36" />Terruá Passport</a>
-    <nav aria-label="Navegación principal">
-      <a href="/galeria.html" aria-current="page">Galería de botellas</a>
-      <a href="/botella-3d.html?botella=100">0100 en 3D</a>
-    </nav>
+  <header class="site-header">
+    <div class="site-bar">
+      <a class="site-brand" href="/"><img src="assets/mark.svg" alt="" />Terruá Passport</a>
+      <span class="site-network">Stellar Testnet</span>
+      <nav class="site-nav" aria-label="Navegación principal">
+        <a href="/galeria.html" aria-current="page">Galería</a>
+        <a href="/botella-3d.html?botella=100">0100 en 3D</a>
+      </nav>
+    </div>
   </header>
   <main class="gallery">
     <section class="gallery-copy" aria-labelledby="gallery-title">

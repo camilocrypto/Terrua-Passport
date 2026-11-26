@@ -1,0 +1,87 @@
+.site-header {
+  background: #fffaf4;
+  border-bottom: 1px solid #dcccc0;
+  color: #382027;
+}
+.site-header .site-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  min-width: 0;
+  gap: 8px 24px;
+  width: min(1160px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 10px 0;
+}
+.site-header .site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  color: #5d1f31;
+  font: 21px Georgia, serif;
+  text-decoration: none;
+}
+.site-brand img { flex: none; width: 34px; height: 34px; }
+.site-network {
+  color: #3c5742;
+  background: #edf3e9;
+  border-radius: 20px;
+  padding: 5px 8px;
+  font-size: 11px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+.site-header .site-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  min-width: 0;
+  margin-left: auto;
+}
+.site-nav > a, .site-more > summary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: #572a37;
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+}
+.site-nav [aria-current="page"], .site-nav > a:hover, .site-more > summary:hover { background: #f0e2d5; }
+.site-more { position: relative; }
+.site-more > summary { cursor: pointer; list-style: none; }
+.site-more > summary::-webkit-details-marker { display: none; }
+.site-menu {
+  position: absolute;
+  right: 0;
+  z-index: 5;
+  min-width: 175px;
+  padding: 4px;
+  border: 1px solid #dcccc0;
+  border-radius: 8px;
+  background: #fffaf4;
+}
+.site-menu a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 6px 10px;
+  color: #572a37;
+  text-decoration: none;
+}
+.site-header :focus-visible { outline: 2px solid #6e3344; outline-offset: 2px; }
+@media (max-width: 680px) {
+  .site-header .site-bar { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 3px 6px; }
+  .site-header .site-brand { font-size: clamp(17px, 5vw, 21px); }
+  .site-header .site-nav { grid-column: 1 / -1; width: 100%; margin: 0; }
+  .site-nav > a { flex: 1 1 auto; }
+  .site-nav > a, .site-more > summary { padding-inline: 7px; font-size: 13px; }
+}
+.ensayo-gallery-frame .site-header { display: none; }

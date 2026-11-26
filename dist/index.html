@@ -11,23 +11,26 @@
     <title>Terruá Passport · Cuaderno de bodega</title>
     <link rel="icon" href="assets/mark.svg" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="public-nav.css" />
   </head>
   <body>
-    <header class="top">
-      <div class="top-inner">
-        <a class="brand" href="#inicio" aria-label="Terruá Passport, inicio"
-          ><img src="assets/mark.svg" width="42" height="42" alt="" /><span
-            >Terruá<small>PASSPORT</small></span
-          ></a
-        >
-        <nav aria-label="Navegación principal">
-          <a href="#inicio" data-nav="inicio">Resumen</a
-          ><a href="#catalogo" data-nav="catalogo">Pasaportes</a
-          ><a href="#verificar" data-nav="verificar">Verificar</a>
-          <a href="#piloto" data-nav="piloto">Demo Testnet</a>
-          <a href="soroban.html">Soroban</a><a href="galeria.html">Galería de botellas</a><a href="botella-3d.html?botella=100">0100 en 3D</a>
+    <header class="site-header">
+      <div class="site-bar">
+        <a class="site-brand" href="#inicio"><img src="assets/mark.svg" alt="" />Terruá Passport</a>
+        <span class="site-network">Stellar Testnet</span>
+        <nav class="site-nav" aria-label="Navegación principal">
+          <a href="galeria.html">Galería</a>
+          <a href="botella-3d.html?botella=100">0100 en 3D</a>
+          <details class="site-more">
+            <summary>Más</summary>
+            <div class="site-menu">
+              <a href="#catalogo" data-nav="catalogo">Pasaportes</a>
+              <a href="#verificar" data-nav="verificar">Verificar</a>
+              <a href="#piloto" data-nav="piloto">Demo Classic</a>
+              <a href="soroban.html">Piloto Soroban</a>
+            </div>
+          </details>
         </nav>
-        <span class="network"><i></i>Stellar Testnet</span>
       </div>
     </header>
     <main id="app"></main>
