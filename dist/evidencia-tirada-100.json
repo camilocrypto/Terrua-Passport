@@ -1,0 +1,139 @@
+{
+  "network": "Stellar Testnet",
+  "contract": "CAZDWOBC7RCSUDA77SJ7445AR4J6KYOQGVG5ILVFRZFJRB2UTY6OJZC2",
+  "reader": "GA2IPKDERXPJQPMLJPIRBMRKFJIPFXF56SIMVHJ34QO5NIR5JWDPFMFC",
+  "wasmHash": "cde0d3ed284be0b881ce2c917810441cdb32839c0cfb0db63355d41d5f50b4ca",
+  "deployment": {
+    "hash": "d072cc55ffd8a187f87907c3f2cedc937a10a7499d38cb39d1a38c0757ad97ed",
+    "ledger": 5927614,
+    "feeStroops": "31222"
+  },
+  "id": "0eef4c14e785310d5352972b43580c60b38bb95098c388ed00f7c9dda482948d",
+  "manifest": {
+    "winery": "Bodega de ensayo",
+    "code": "TIRADA-100",
+    "first": 1,
+    "count": 100
+  },
+  "registration": {
+    "label": "Registrar lote de ensayo",
+    "hash": "1fab876b9323fbcd7dc4e3a933903b526e0969e1370fe7e66382a625cb4da1e1",
+    "ledger": 5927616,
+    "feeStroops": "41376"
+  },
+  "batches": [
+    {
+      "first": 1,
+      "last": 8,
+      "label": "Registrar botellas 1–8",
+      "hash": "ff91e81d4abfbfc9663f4a255ed3a8f1a3a12ae958dbea2ea60591ab7573b274",
+      "ledger": 5927617,
+      "feeStroops": "295630"
+    },
+    {
+      "first": 9,
+      "last": 16,
+      "label": "Registrar botellas 9–16",
+      "hash": "3b52bdabbb0462d7144880fab17b5424b766a7c7bd48ad34e2ff1300c8e25b28",
+      "ledger": 5927618,
+      "feeStroops": "295630"
+    },
+    {
+      "first": 17,
+      "last": 24,
+      "label": "Registrar botellas 17–24",
+      "hash": "c0747364a650c5a791dad2d9df764b454f7600f1488ce274d005169aa6070f6d",
+      "ledger": 5927619,
+      "feeStroops": "295630"
+    },
+    {
+      "first": 25,
+      "last": 32,
+      "label": "Registrar botellas 25–32",
+      "hash": "120d10554b4d0c659167a377dbfee0bed39bffad433b856b05f2260e9eeda72c",
+      "ledger": 5927620,
+      "feeStroops": "295630"
+    },
+    {
+      "first": 33,
+      "last": 40,
+      "label": "Registrar botellas 33–40",
+      "hash": "3f091af9e1e6a5419688360b787e7ea40f236f983b1f5721baf6f6c79ca7d172",
+      "ledger": 5927621,
+      "feeStroops": "295630"
+    },
+    {
+      "first": 41,
+      "last": 48,
+      "label": "Registrar botellas 41–48",
+      "hash": "d8140ad31533c436d53594174b9d6ebfd970a79b16004d9b4af38691f35445bf",
+      "ledger": 5927622,
+      "feeStroops": "295630"
+    },
+    {
+      "first": 49,
+      "last": 56,
+      "label": "Registrar botellas 49–56",
+      "hash": "af9162ac76618a56f33294fecaa21fe099c611de76ec1483a058b92fd3db2188",
+      "ledger": 5927623,
+      "feeStroops": "295630"
+    },
+    {
+      "first": 57,
+      "last": 64,
+      "label": "Registrar botellas 57–64",
+      "hash": "277d4c973e1a2eef12abee611ddf3ba017a958296a6a340ca0b30c9181eac9b2",
+      "ledger": 5927624,
+      "feeStroops": "295630"
+    },
+    {
+      "first": 65,
+      "last": 72,
+      "label": "Registrar botellas 65–72",
+      "hash": "079da188c37e6bfdaefdcf000e07da8c4ab685abf20ede7c599dd960240ecc4b",
+      "ledger": 5927625,
+      "feeStroops": "295630"
+    },
+    {
+      "first": 73,
+      "last": 80,
+      "label": "Registrar botellas 73–80",
+      "hash": "627bd8765e4c5260e3306a400fc4a50bedd4f60a903e1efb3d25ec6854f7f7a5",
+      "ledger": 5927626,
+      "feeStroops": "295630"
+    },
+    {
+      "first": 81,
+      "last": 88,
+      "label": "Registrar botellas 81–88",
+      "hash": "554965a5c4e84e6044a44ddbd353f5ee0b75a5b20da6555e1251032553984562",
+      "ledger": 5927627,
+      "feeStroops": "295630"
+    },
+    {
+      "first": 89,
+      "last": 96,
+      "label": "Registrar botellas 89–96",
+      "hash": "9bf16a5b5323eafbebc231191f5ac5d51b93f54aad1a75674f5dcad01f3113cb",
+      "ledger": 5927628,
+      "feeStroops": "295630"
+    },
+    {
+      "first": 97,
+      "last": 100,
+      "label": "Registrar botellas 97–100",
+      "hash": "eb9d8b6428b29a151ddb555a7d29d5a3dec35a89e2daa132348c23730f48d11d",
+      "ledger": 5927629,
+      "feeStroops": "149807"
+    }
+  ],
+  "assignments": [
+    {
+      "label": "Asignar botella 100",
+      "hash": "d9781f3ef6cc47752fa611cd88571a0bd031a7e6638103e14fade8346f1d3660",
+      "ledger": 5927630,
+      "feeStroops": "8872",
+      "number": 100
+    }
+  ]
+}

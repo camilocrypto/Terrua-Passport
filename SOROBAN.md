@@ -2,6 +2,25 @@
 
 ## Evaluar el piloto
 
+**Tirada de 100 botellas.** Ejecuta `node pruebas/ensayo.cjs --tirada` y
+abre [TIRADA-100](http://127.0.0.1:18768/). Este servidor usa un contrato
+separado y conserva el ensayo anterior. Verifica y guarda el comprobante
+antes de la presentación con `node pruebas/tirada.cjs evidencia-tirada-100.json`.
+En la reunión, abre **0100**, simula la apertura, comprueba un código
+incorrecto y el correcto, confirma el consumo y vuelve al lote. El contador
+debería mostrar 99 activas y el enlace a la transacción. Mantén el proceso
+en marcha para conservar el código y la cuenta de ensayo en memoria.
+
+Para ensayar desde un solo computador, ejecuta `node pruebas/ensayo.cjs` y
+abre [la botella de ensayo](http://127.0.0.1:18767). El servidor local prepara
+dos botellas nuevas en un contrato separado de Testnet. Pulsa **Simular
+apertura**, escribe el código, compruébalo y marca la botella como consumida.
+La cuenta titular de ensayo se guarda en memoria y firma solo en Testnet. El
+consumo es definitivo. Usa `?botella=2` como segunda ficha, o reinicia el
+servidor para preparar un nuevo ensayo. Mantén el servidor abierto durante
+la presentación. El QR local se puede abrir usando su enlace en el mismo
+computador.
+
 1. Ejecuta `python iniciar.py` y selecciona **Soroban**. Para un evaluador externo, sirve el directorio `dist/` por HTTPS y abre `soroban.html`.
 2. Abre las dos primeras botellas de cada lote desde los seis QR de muestra. Comprueba que los números de frente, reverso y pasaporte coinciden. Usa **Comparar el número impreso** para probar que otra numeración se rechaza.
 3. En el primer lote, la botella 0001 aparece **Consumida**, la 0002 aparece **Retirada** y quedan 22 activas. El pasaporte incluye los enlaces a las transacciones de la demo y el ledger del último cambio.

@@ -34,20 +34,7 @@ async function write(signer, operation, label, number) {
   };
 }
 
-async function publish(wasmPath) {
-  if (!wasmPath) throw Error('Indica la ruta del archivo Wasm.');
-  const interactiveHolder = process.env.TERRUA_TEST_HOLDER;
-  const interactiveInput = process.env.TERRUA_TEST_CORK;
-  if (Boolean(interactiveHolder) !== Boolean(interactiveInput) ||
-      (interactiveHolder && !S.StrKey.isValidEd25519PublicKey(interactiveHolder))) {
-    throw Error('Para probar con Freighter, indica una cuenta pública Testnet y su código de muestra.');
-  }
-  const interactiveCode = interactiveInput ? T.normalizeCode(interactiveInput) : null;
-  delete process.env.TERRUA_TEST_CORK;
-  const wasm = fs.readFileSync(wasmPath);
-  const wasmHash = T.digest(wasm);
-  const [admin, winery, reviewer, holder] = await Promise.all(Array.from({ length: 4 }, funded));
-  const upload = await write(admin, S.Operation.uploadContractWasm({ wasm }), 'Publicación del Wasm');
+async function deploy(admin, reviewer, wasmHash) {
   const account = await T.rpc.getAccount(admin.publicKey());
   const address = new S.Address(admin.publicKey());
   const salt = randomBytes(32);
@@ -65,16 +52,32 @@ async function publish(wasmPath) {
     ),
   }));
   const contract = S.StrKey.encodeContract(T.digest(preimage.toXDR()));
-  const config = {
+  return {
     network: 'Stellar Testnet', contract, reader: admin.publicKey(),
-    wasmHash: T.hex(wasmHash), upload,
+    wasmHash: T.hex(wasmHash),
     deployment: {
       hash: deployed.hash, ledger: deployed.result.ledger,
       feeStroops: S.xdr.TransactionResult.fromXDR(deployed.result.resultXdr, 'base64').feeCharged().toString(),
     },
-    lots: [],
   };
-  console.log('Contrato', contract, deployed.hash);
+}
+
+async function publish(wasmPath) {
+  if (!wasmPath) throw Error('Indica la ruta del archivo Wasm.');
+  const interactiveHolder = process.env.TERRUA_TEST_HOLDER;
+  const interactiveInput = process.env.TERRUA_TEST_CORK;
+  if (Boolean(interactiveHolder) !== Boolean(interactiveInput) ||
+      (interactiveHolder && !S.StrKey.isValidEd25519PublicKey(interactiveHolder))) {
+    throw Error('Para probar con Freighter, indica una cuenta pública Testnet y su código de muestra.');
+  }
+  const interactiveCode = interactiveInput ? T.normalizeCode(interactiveInput) : null;
+  delete process.env.TERRUA_TEST_CORK;
+  const wasm = fs.readFileSync(wasmPath);
+  const [admin, winery, reviewer, holder] = await Promise.all(Array.from({ length: 4 }, funded));
+  const upload = await write(admin, S.Operation.uploadContractWasm({ wasm }), 'Publicación del Wasm');
+  const config = { ...await deploy(admin, reviewer, T.digest(wasm)), upload, lots: [] };
+  const { contract } = config;
+  console.log('Contrato', contract, config.deployment.hash);
   const wineryId = hashText('terrua.winery.demo.v1');
   const invoke = (key, label, method, args, number) =>
     write(key, T.operation(contract, method, ...args), label, number);
@@ -162,7 +165,8 @@ async function main() {
   await verify(JSON.parse(fs.readFileSync(evidence, 'utf8')));
 }
 
-main().catch((error) => {
+module.exports = { S, T, funded, write, deploy, hashText, lotHash };
+if (require.main === module) main().catch((error) => {
   console.error(error.message);
   process.exitCode = 1;
 });

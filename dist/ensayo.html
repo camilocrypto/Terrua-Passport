@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es-CL">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Terruá Passport · Botella de ensayo</title>
+    <link rel="icon" href="/assets/mark.svg" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script defer src="/assets/qr.min.js"></script>
+    <script defer src="/ensayo.js"></script>
+  </head>
+  <body>
+    <header class="top">
+      <div class="top-inner">
+        <span class="brand"><img src="/assets/mark.svg" width="42" height="42" alt="" />Terruá Passport</span>
+        <nav id="lot-nav" class="ensayo-nav" aria-label="Navegación de la tirada" hidden>
+          <a id="nav-catalogue" href="/#catalogo-botellas">Catálogo de botellas</a>
+          <a id="nav-3d" href="/?botella=100">0100 en 3D</a>
+        </nav>
+        <span class="network">Stellar Testnet</span>
+      </div>
+    </header>
+    <main>
+      <h1 id="ensayo-title">Botella digital de ensayo</h1>
+      <p>La etiqueta y la apertura son digitales. El consumo lo firma la cuenta de ensayo en Stellar Testnet.</p>
+      <p id="status" role="status">Preparando la botella en Testnet…</p>
+      <section id="lot-panel" class="panel" hidden>
+        <h2 id="lot-heading"></h2>
+        <p id="lot-count" role="status"></p>
+        <div class="actions">
+          <a class="btn primary" href="?botella=100">Abrir botella 0100</a>
+          <a class="btn outline" href="/evidencia.json" download="evidencia-tirada-100.json">Descargar evidencia</a>
+          <button type="button" class="btn outline" id="refresh-lot">Actualizar contador</button>
+        </div>
+        <p><a id="lot-consumption" hidden>Ver transacción de consumo</a></p>
+        <form id="lot-search">
+          <label class="field">Buscar número de botella
+            <input type="number" name="number" min="1" max="100" required />
+          </label>
+          <button class="btn outline">Abrir pasaporte</button>
+        </form>
+        <section id="catalogo-botellas" aria-labelledby="catalogo-heading">
+          <h3 id="catalogo-heading">Catálogo de botellas</h3>
+          <div id="lot-bottles" class="ensayo-catalogue"></div>
+        </section>
+      </section>
+      <article id="passport" class="cert" hidden>
+        <p id="lot-back" hidden><a href="/">Volver a la tirada</a></p>
+        <h2 id="bottle"></h2>
+        <p><strong id="state"></strong></p>
+        <section class="ensayo-preview" aria-label="Vista de la botella">
+          <div id="bottle-stage" class="ensayo-stage">
+            <div id="bottle-fallback" class="ensayo-bottle" role="img" aria-label="Botella de vino Terruá">
+              <span class="ensayo-capsule"></span>
+              <div class="ensayo-paper"><strong>Terruá</strong><small>PASSPORT</small><span id="bottle-serial"></span></div>
+              <div class="ensayo-paper ensayo-paper-back" id="bottle-qr"></div>
+            </div>
+          </div>
+          <div class="ensayo-views" role="group" aria-label="Girar botella">
+            <button type="button" class="btn outline" id="view-front" aria-pressed="true">Frente</button>
+            <button type="button" class="btn outline" id="view-back" aria-pressed="false">Reverso y QR</button>
+            <button type="button" class="btn outline" id="view-cork" aria-pressed="false" hidden>Abrir y ver corcho</button>
+          </div>
+          <p class="ensayo-visual-note" id="visual-note" role="status" hidden></p>
+        </section>
+        <details>
+          <summary>Ver etiqueta digital</summary>
+          <p id="front"></p>
+          <div class="qr-box" id="qr"></div>
+          <p id="back"></p>
+          <a href="" id="qr-link">Abrir pasaporte como si escanearas el QR</a>
+        </details>
+        <p><button id="open-cork" class="btn outline">Simular apertura</button></p>
+        <p><button id="replay-cork" type="button" class="btn outline" hidden>Repetir animación de apertura</button></p>
+        <p id="code-label" hidden>Código bajo la cápsula <strong id="code"></strong></p>
+        <form id="check-form" hidden>
+          <label class="field">Código del corcho
+            <input name="cork" maxlength="24" autocomplete="off" spellcheck="false" required />
+          </label>
+          <div class="actions">
+            <button class="btn outline">Comprobar código</button>
+            <button type="button" id="consume" class="btn primary" disabled>Marcar como consumida en Testnet</button>
+          </div>
+          <p>El código de ensayo queda visible en la transacción de consumo.</p>
+        </form>
+        <p><a id="transaction" hidden target="_blank" rel="noopener">Ver la transacción de consumo</a></p>
+      </article>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galería de botellas · Terruá Passport</title>
+  <link rel="icon" href="assets/mark.svg" />
+  <link rel="stylesheet" href="galeria.css" />
+  <script defer src="galeria.js"></script>
+</head>
+<body>
+  <header class="gallery-header">
+    <a class="gallery-brand" href="/"><img src="assets/mark.svg" alt="" width="36" height="36" />Terruá Passport</a>
+    <nav aria-label="Navegación principal">
+      <a href="/galeria.html" aria-current="page">Galería de botellas</a>
+      <a href="/botella-3d.html?botella=100">0100 en 3D</a>
+    </nav>
+  </header>
+  <main class="gallery">
+    <section class="gallery-copy" aria-labelledby="gallery-title">
+      <p class="gallery-lot">TIRADA–100</p>
+      <h1 id="gallery-title">Galería de botellas</h1>
+      <p class="gallery-description">Explora la tirada en 3D. Gira la botella para ver el QR de su pasaporte en Stellar Testnet.</p>
+      <form id="gallery-picker" class="gallery-controls">
+        <button type="button" id="gallery-prev" aria-label="Botella anterior">←</button>
+        <label for="gallery-number">Botella</label>
+        <select id="gallery-number" name="number" aria-label="Número de botella"></select>
+        <button type="button" id="gallery-next" aria-label="Botella siguiente">→</button>
+      </form>
+      <div class="gallery-links">
+        <a id="gallery-detail" class="gallery-primary" href="/botella-3d.html?botella=100">Abrir botella</a>
+        <a id="gallery-passport" aria-disabled="true">Abrir pasaporte 0100</a>
+      </div>
+      <p id="gallery-status" role="status"></p>
+      <a class="gallery-evidence" href="/evidencia-tirada-100.json">Consultar comprobante de la tirada</a>
+    </section>
+    <section class="gallery-stage" aria-label="Visor tridimensional">
+      <iframe id="gallery-model" title="Modelo 3D de la botella 0100" src="/botella-3d.html?botella=100&amp;galeria=1"></iframe>
+    </section>
+  </main>
+</body>
+</html>
